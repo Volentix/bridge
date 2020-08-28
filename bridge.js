@@ -25,6 +25,7 @@ async function eth_balance(web3_instance){
     const contract = new web3_instance.eth.Contract(json.abi, contract_address); 
     for (i =0;;i++) {
         await sleep(3000);
+        
         new_vtx_balance = contract.methods.balanceOf('0x7D5592066FAE5cC14a62477EEb5074036610415c').call((err, result) => {}); 
         new_vtx_balance = await new_vtx_balance;
         from_wei = web3_instance.utils.fromWei(new_vtx_balance, 'ether');
