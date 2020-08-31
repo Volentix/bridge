@@ -57,7 +57,8 @@ private:
    struct [[eosio::table]] balance
    {
       uint64_t id;
-      asset balance;
+      name account;
+      uint64_t balance;
       uint32_t timestamp;
       uint32_t local_timestamp;
       uint64_t primary_key() const { return id; }

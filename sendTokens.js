@@ -1,10 +1,9 @@
-
 // Dotenv javascript libraries needed
 require('dotenv').config();
 // Ethereum javascript libraries needed
 var Web3 = require('web3');
-var Tx = require('ethereumjs-tx');
-// var Tx = require("ethereumjs-tx").Transaction;
+// var Tx = require('ethereumjs-tx');
+var Tx = require("ethereumjs-tx").Transaction;
 const json  = require("./build/contracts/VTX.json");
 var EthUtil = require('ethereumjs-util');
 var Wallet = require('ethereumjs-wallet');
@@ -23,7 +22,8 @@ const main = async () => {
     var myAddress = "0x7D5592066FAE5cC14a62477EEb5074036610415c";
     // Who are we trying to send this token to?
     var destAddress = "0x0f36bE29953148490CFc3C8150100Ae94C10A9eF";
-    var transferAmount = 999;
+    var transferAmount = 10000000000;
+    // transferAmount = transferAmount.toString();
     // Determine the nonce
     var count = await web3.eth.getTransactionCount(myAddress);
     console.log(`num transactions so far: ${count}`);
@@ -47,14 +47,15 @@ const main = async () => {
         "gasLimit": web3.utils.toHex(gasLimit),
         "to": contractAddress,
         "value": "0x0",
-        "data": contract.methods.transfer(destAddress, transferAmount).encodeABI(),
+        "data": contract.methods.transfer(destAddress, transferAmount.toString()).encodeABI(),
         "chainId": chainId
     };
     console.log(`Raw of Transaction: \n${JSON.stringify(rawTransaction, null, '\t')}\n------------------------`);
     var privKey = '0x27c4cd052d31bc4006a8d2f51580cd06117933b2e0dea81c4cb35efad88dc3f0';
     // privateKeyBuffer = EthUtil.toBuffer(privKey);
     privateKeyBuffer = Buffer.from(privKey.slice(2), "hex")
-    var tx = new Tx(rawTransaction);
+    // var tx = new Tx(rawTransaction);
+    var tx = new Tx(rawTransaction, {'chain':'ropsten'});
     tx.sign(privateKeyBuffer);
     var serializedTx = tx.serialize();
     // Comment out these four lines if you don't really want to send the TX right now

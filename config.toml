@@ -1,0 +1,10 @@
+# This config should be placed in following path:
+#   $HOME/Library/Application Support/io.parity.ethereum/config.toml
+
+[parity]
+# Ropsten Test Network
+chain = "ropsten"
+
+[rpc]
+# Allows Cross-Origin Requests from domain ''.
+cors = [""]

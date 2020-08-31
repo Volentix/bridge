@@ -31,20 +31,23 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    auto now = current_time_point().sec_since_epoch();
    balances.emplace(get_self(), [&](auto& row){
         row.id = balances.available_primary_key();
-        row.balance = asset(balance, symbol(TOKEN_SYMBOL, SYMBOL_PRE_DIGIT));
+        row.account = account;
+        row.balance = balance;
         row.timestamp = timestamp;
         row.local_timestamp = now;
       });
    //get current balance   
-   auto current_balance = _currentbal.get();
+   auto current_balance = _currentbal.get().balance;
    //determine size
    uint64_t size = 0;
-   uint64_t sum;
-   
-   sum = double(sum);
-   //sum 
+   uint64_t same;
+   uint64_t previous;
+   //calculate size      
    while (itr != balances.end()) {
-         sum += itr->balance.amount;   
+         if(itr->balance == previous){
+            same++;
+         }
+         previous = itr->balance;   
          size++;
          itr++;
    }
@@ -52,25 +55,26 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    if(size > 8){
             balances.erase(balances.begin());   
    }
-   //calculate average
-   if (size > 0){
-      sum = sum/size - 1;
+   bool send = false;
+   //calculate consecutive 2/3 majority
+   if (size != 0 && same /size  > .666666){
+      send = true;
    }
-   uint64_t ethereum_balance = balance;
-   uint64_t amount_to_transfer = (current_balance.balance - ethereum_balance);
+   //determine amount
+   uint64_t amount_to_transfer = (current_balance - balance);
+   currentbal new_current_balance;
+   new_current_balance.balance = balance;
    if (amount_to_transfer > 0){
-      currentbal new_current_balance;
-      asset new_balance = asset(amount_to_transfer, symbol(TOKEN_SYMBOL, SYMBOL_PRE_DIGIT));
-      new_current_balance.balance = ethereum_balance;
+      asset eos_balance = asset(amount_to_transfer, symbol(TOKEN_SYMBOL, SYMBOL_PRE_DIGIT));
       _currentbal.set(new_current_balance, get_self());       
-      // std::vector<permission_level> p;
-      // p.push_back(permission_level{ name("vtx222222222"), "active"_n });
-      // action(
-      //    p,
-      //    TOKEN_ACC,
-      //    "retire"_n,
-      //    std::make_tuple(new_balance, std::string("test")) 
-      // ).send();
+      std::vector<permission_level> p;
+      p.push_back(permission_level{ name("vtx222222222"), "active"_n });
+      action(
+         p,
+         TOKEN_ACC,
+         "retire"_n,
+         std::make_tuple(eos_balance, std::string("test")) 
+      ).send();
    }
 }
 

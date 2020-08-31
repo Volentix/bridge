@@ -1,0 +1,12 @@
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/arrayvec-2dc9e19eddbaa2da.rmeta: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/maybe_uninit.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array_string.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/char.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/errors.rs
+
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/libarrayvec-2dc9e19eddbaa2da.rlib: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/maybe_uninit.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array_string.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/char.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/errors.rs
+
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/arrayvec-2dc9e19eddbaa2da.d: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/maybe_uninit.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array_string.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/char.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/errors.rs
+
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/lib.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/maybe_uninit.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/array_string.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/char.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/arrayvec-0.5.1/src/errors.rs:

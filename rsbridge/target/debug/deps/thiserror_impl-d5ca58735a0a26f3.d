@@ -1,0 +1,11 @@
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/libthiserror_impl-d5ca58735a0a26f3.dylib: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/ast.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/attr.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/expand.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/fmt.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/prop.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/valid.rs
+
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/thiserror_impl-d5ca58735a0a26f3.d: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/ast.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/attr.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/expand.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/fmt.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/prop.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/valid.rs
+
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/lib.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/ast.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/attr.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/expand.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/fmt.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/prop.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.20/src/valid.rs:

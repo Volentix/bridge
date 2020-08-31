@@ -1,0 +1,16 @@
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/soketto-b7bba874349685cb.rmeta: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/base.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/data.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/extension.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/client.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/server.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/connection.rs
+
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/libsoketto-b7bba874349685cb.rlib: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/base.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/data.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/extension.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/client.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/server.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/connection.rs
+
+/Users/sylvltx/bridge/rsbridge/target/debug/deps/soketto-b7bba874349685cb.d: /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/lib.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/base.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/data.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/extension.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/client.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/server.rs /Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/connection.rs
+
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/lib.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/base.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/data.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/extension.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/client.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/handshake/server.rs:
+/Users/sylvltx/.cargo/registry/src/github.com-1ecc6299db9ec823/soketto-0.4.1/src/connection.rs:
+
+# env-dep:CARGO_PKG_VERSION=0.4.1
