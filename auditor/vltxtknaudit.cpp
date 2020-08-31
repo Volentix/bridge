@@ -40,6 +40,7 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    auto current_balance = _currentbal.get().balance;
    //determine size
    uint64_t size = 0;
+   
    uint64_t same;
    uint64_t previous;
    //calculate size      
@@ -57,14 +58,14 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    }
    bool send = false;
    //calculate consecutive 2/3 majority
-   if (size != 0 && same /size  > .666666){
+   if (size != 0 && same /size  > .666666 && balances.end()){
       send = true;
    }
    //determine amount
    uint64_t amount_to_transfer = (current_balance - balance);
    currentbal new_current_balance;
    new_current_balance.balance = balance;
-   if (amount_to_transfer > 0){
+   if (amount_to_transfer > 0 && send == true){
       asset eos_balance = asset(amount_to_transfer, symbol(TOKEN_SYMBOL, SYMBOL_PRE_DIGIT));
       _currentbal.set(new_current_balance, get_self());       
       std::vector<permission_level> p;
