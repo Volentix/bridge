@@ -6,8 +6,8 @@ const { TextEncoder, TextDecoder } = require('util');
 const { mainModule } = require('process');
 var Accounts = require('web3-eth-accounts');
 const json  = require("./build/contracts/VTX.json");
-// const web31= new Web3('ws://127.0.0.1:8546')
-const web32 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
+const web31= new Web3('ws://127.0.0.1:8546')
+// const web32 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
 const web33= new Web3('https://main-rpc.linkpool.io')
 const contract_address = '0x71c5a83193399b15417ffda7f9406cd72f311d8a' 
 
@@ -23,8 +23,8 @@ const contract_address = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'
 // );
 
 async function main(){
-//   eth_balance(web31);
-  eth_balance(web32);
+  eth_balance(web31);
+//   eth_balance(web32);
 //   eth_balance(web32);
 //   process.exit(22);
 }
