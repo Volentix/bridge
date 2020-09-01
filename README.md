@@ -1,6 +1,6 @@
 # VTX Bridge v0.0.1
 Acts as a custodian for wrapping of ETH VTX and EOS VTX.
-[For description:](https://https://github.com/Volentix/bridge/blob/master/doc/AutomatedWrappedTokenCustodian.md)
+
 ## Running the oracle
 
 ### Install openethereum
