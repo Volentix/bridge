@@ -40,7 +40,7 @@ cd src
 ```
 node bridge.js
 ```
-## Deploying the custodian contract
+## Deploying the custodian contract on EOSIO
 ###
 1. Create account for token contract with ressources
 2. Compile token contract
@@ -58,7 +58,7 @@ cleos --url https://jungle2.cryptolions.io:443  push  action <token contract acc
 ```
 9. Clear previous balances in the buffer
 ```
-cleos --url https://jungle2.cryptolions.io:443  push  action vltxtknaudit  clearblnc '[]' -p node account@active
+cleos --url https://jungle2.cryptolions.io:443  push  action <custodian contract account>  clearblnc '[]' -p <node account>@active
 ```
 
 
