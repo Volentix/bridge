@@ -47,15 +47,16 @@ node bridge.js
 3. Deploy contract
 4. Create account for custodian contract with ressources
 5. Compile custodian contract
-6. Set permissions for custodian on token contract
+6. Deploy contract
+7. Set permissions for custodian on token contract
 ```
 cleos --url https://jungle2.cryptolions.io:443 set account permission <token contract> active <custodian contract> --add-code
 ```
-7. Init custodian contract
+8. Init custodian contract
 ```
 cleos --url https://jungle2.cryptolions.io:443  push  action vltxtknaudit  initbalance '[]' -p quaremachina@active
 ```
-8. Clear previous balances in the buffer
+9. Clear previous balances in the buffer
 
 
 
