@@ -22,7 +22,8 @@ const main = async () => {
     var myAddress = "0x7D5592066FAE5cC14a62477EEb5074036610415c";
     // Who are we trying to send this token to?
     var destAddress = "0x0f36bE29953148490CFc3C8150100Ae94C10A9eF";
-    var transferAmount = 10000000000;
+    // var transferAmount = 10000000000; //.00000001
+    var transferAmount = 1000000000000000000; //1
     // transferAmount = transferAmount.toString();
     // Determine the nonce
     var count = await web3.eth.getTransactionCount(myAddress);
@@ -65,6 +66,6 @@ const main = async () => {
     console.log(`Receipt info: \n${JSON.stringify(receipt, null, '\t')}\n------------------------`);
     // The balance may not be updated yet, but let's check
     balance = await contract.methods.balanceOf(myAddress).call();
-    console.log(`Balance after send: ${financialVTX(balance)} VTX`);
+    console.log(balance);
 }
 main();
