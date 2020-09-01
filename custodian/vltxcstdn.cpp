@@ -1,16 +1,16 @@
-#include "vltxtknaudit.hpp"
+#include "vltxcstdn.hpp"
 
 using namespace eosio;
 using std::string;
 
-void vltxtknaudit::initbalance() {
+void vltxcstdn::initbalance(uint64_t balance) {
    currentbal initial_current_balance;
-   initial_current_balance.balance = 0;
+   initial_current_balance.balance = balance;
    _currentbal.get_or_create(get_self(), initial_current_balance);
    _currentbal.set(initial_current_balance, get_self()); 
 }
 
-void vltxtknaudit::clearblnc(name account)
+void vltxcstdn::clearblnc(name account)
 {  
    // require_auth(get_self());
    etherium_balances balances(get_self(), get_self().value);
@@ -20,7 +20,7 @@ void vltxtknaudit::clearblnc(name account)
    }
    
 }
-void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
+void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
 {
    require_auth(account);
    //make sure the node is registered
@@ -58,7 +58,7 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    }
    bool send = false;
    //calculate consecutive 2/3 majority
-   if (size != 0 && same /size  > .666666 && balances.end()){
+   if (size != 0 && same /size  > .666666){
       send = true;
    }
    //determine amount
@@ -79,7 +79,7 @@ void vltxtknaudit::updtblnc(name account, uint64_t balance, uint64_t timestamp)
    }
 }
 
-void vltxtknaudit::regnode(name account)
+void vltxcstdn::regnode(name account)
 {
    require_auth(get_self());
    auto iter = _nodelist.find(account.value);
@@ -91,7 +91,7 @@ void vltxtknaudit::regnode(name account)
    }
 }
 
-void vltxtknaudit::rmnode(name account)
+void vltxcstdn::rmnode(name account)
 {
    require_auth(get_self());
    auto itr = _nodelist.find(account.value);
@@ -101,7 +101,7 @@ void vltxtknaudit::rmnode(name account)
    }
 };
 
-void vltxtknaudit::checknode(name account)
+void vltxcstdn::checknode(name account)
 {
    auto itr = _nodelist.find(account.value);
    check(itr == _nodelist.end(), "account is listed.");

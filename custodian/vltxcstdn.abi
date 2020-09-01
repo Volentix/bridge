@@ -62,7 +62,12 @@
         {
             "name": "initbalance",
             "base": "",
-            "fields": []
+            "fields": [
+                {
+                    "name": "balance",
+                    "type": "uint64"
+                }
+            ]
         },
         {
             "name": "regnode",

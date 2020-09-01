@@ -18,17 +18,17 @@
 
 using namespace eosio;
 using std::string;
-class[[eosio::contract("vltxtknaudit")]] vltxtknaudit : public contract
+class[[eosio::contract("vltxcstdn")]] vltxcstdn : public contract
 {
 public:
    using contract::contract;
 
-   vltxtknaudit(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds),
+   vltxcstdn(name receiver, name code, datastream<const char *> ds) : contract(receiver, code, ds),
                                                                       _balances(receiver, receiver.value),
                                                                       _nodelist(receiver, receiver.value),
                                                                       _currentbal(receiver, receiver.value) {}
    [[eosio::action]] 
-   void initbalance();
+   void initbalance(uint64_t balance);
 
    [[eosio::action]] 
    void updtblnc(name account, uint64_t balance, uint64_t timestamp);
