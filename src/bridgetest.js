@@ -75,7 +75,6 @@ async function eth_balance(web3_instance){
             console.log(result);
           })();
         
-    
         // eos_vtx_balance = rpc.get_currency_balance('vtx222222222', 'vtx222222222', 'WVTX').then((balance) => {return balance})
         // eos_vtx_balance = await eos_vtx_balance;
         // console.log('ETH balance');

@@ -1,6 +1,6 @@
 # VTX Bridge v0.0.1
 Acts as a custodian for wrapping of ETH VTX and EOS VTX.
-
+[For description:](https://https://github.com/Volentix/bridge/blob/master/doc/AutomatedWrappedTokenCustodian.md)
 ## Running the oracle
 
 ### Install openethereum
@@ -45,12 +45,18 @@ node bridge.js
 1. Create account for token contract with ressources
 2. Compile token contract
 3. Deploy contract
-4. Create account for custodian
+4. Create account for custodian contract with ressources
 5. Compile custodian contract
 6. Set permissions for custodian on token contract
 ```
 cleos --url https://jungle2.cryptolions.io:443 set account permission <token contract> active <custodian contract> --add-code
 ```
+7. Init custodian contract
+```
+cleos --url https://jungle2.cryptolions.io:443  push  action vltxtknaudit  initbalance '[]' -p quaremachina@active
+```
+8. Clear previous balances in the buffer
+
 
 
 
