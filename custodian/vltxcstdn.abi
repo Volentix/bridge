@@ -42,12 +42,7 @@
         {
             "name": "clearblnc",
             "base": "",
-            "fields": [
-                {
-                    "name": "account",
-                    "type": "name"
-                }
-            ]
+            "fields": []
         },
         {
             "name": "currentbal",

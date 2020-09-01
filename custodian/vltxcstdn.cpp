@@ -10,7 +10,7 @@ void vltxcstdn::initbalance(uint64_t balance) {
    _currentbal.set(initial_current_balance, get_self()); 
 }
 
-void vltxcstdn::clearblnc(name account)
+void vltxcstdn::clearblnc()
 {  
    // require_auth(get_self());
    etherium_balances balances(get_self(), get_self().value);

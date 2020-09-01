@@ -42,7 +42,7 @@ public:
     [[eosio::action]]
    void checknode(name account);
    [[eosio::action]]
-   void clearblnc(name account);
+   void clearblnc();
    
 private:
 
