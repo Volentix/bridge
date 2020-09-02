@@ -64,7 +64,7 @@ node bridge.js
 1. Create account for token contract with ressources
 2. Compile token contract
 3. Deploy contract
-4. Create account for custodian contract with ressources
+4. Create account for custodian contract with ressources\
    Set variables according to your setup:
     ```
     #define SYMBOL_PRE_DIGIT 8
