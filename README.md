@@ -65,6 +65,12 @@ node bridge.js
 2. Compile token contract
 3. Deploy contract
 4. Create account for custodian contract with ressources
+   Set variables according to your setup:
+    ```
+    #define SYMBOL_PRE_DIGIT 8
+    #define TOKEN_SYMBOL "WVTX"
+    #define TOKEN_ACC name("vtx222222222")
+    ``` 
 5. Compile custodian contract
 6. Deploy contract
 7. Set permissions for custodian on token contract
