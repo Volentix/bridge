@@ -1,0 +1,97 @@
+\documentclass[]{article}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{listings}
+\usepackage{xcolor} % for setting colors
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage[numbers]{natbib}	
+
+% set the default code style
+\lstset{
+	frame=tb, % draw a frame at the top and bottom of the code block
+	tabsize=4, % tab space width
+	showstringspaces=false, % don't mark spaces in strings
+	numbers=left, % display line numbers on the left
+	commentstyle=\color{green}, % comment color
+	keywordstyle=\color{blue}, % keyword color
+	stringstyle=\color{red} % string color
+}
+
+%opening
+\title{VTX token retire mechanism test plan}
+\author{
+		The Volentix team\\
+	\texttt{sylvain@volentixlabs.com}
+}
+
+
+\begin{document}
+
+\maketitle
+
+
+\section{Preparation}
+
+\textbf{	Nodes on jungle test net}
+	\begin{enumerate}
+		\paragraph{}
+		\item setup node v44444444444 
+		\item setup node quaremachina
+		\item setup node volentixtst5
+		\item setup node vltxtknaudit
+		\item setup node vtx222222222		
+	  \end{enumerate}
+\textbf{Create accounts}
+\begin{enumerate}
+\item create v11111111111, v222222222222, v33333333333, v55555555555
+\end{enumerate} 
+ \textbf{Other preparatory actions}
+  		\begin{enumerate}
+		  \item Mint 2 test pools of  100000.00000000 ERC-777 VTX on Ropsten
+		  \item Deploy TVTX token contracts on v11111111111 
+		  \item Deploy custodian on v22222222222
+		  \item set v22222222222 permissions for v11111111111
+		  \item Issue token pool v33333333333
+		  \item Initialize v22222222222 \textit{currentbal}
+		  \item Clear v22222222222 \textit{balances} buffer
+		    \item register nodes to v22222222222\\
+	 \end{enumerate}
+  
+
+\section{Tests}
+
+					\begin{enumerate}
+					\item \textbf{Amount test}\\
+					All nodes send same amount.
+						\begin{enumerate}
+						\item amount upper/lower bounds: concordant balance
+						\item amount format  
+						\end{enumerate}
+					\item \textbf{Buffer test}\\
+					\begin{enumerate}
+						\item Nodes all send different amounts 
+						\item 2/3 Nodes send same amount
+						\item Flooding/DDos  
+					\end{enumerate}
+						\item \textbf{Registration test}\\
+						\item \textbf{Unregistration test}\\
+						\item \textbf{Persistence test}\\
+							\begin{enumerate}
+								\item Message to network less than 8 nodes with pesistency
+								\item Iterate through 16 nodes and shut 8 down
+							\end{enumerate}
+				\end{enumerate}
+	
+%\begin{figure}
+%centering
+%	\includegraphics[scale=.33333]{bridge.png}
+%\caption{}
+%\label{fig:whitebackground-ecosystem02}
+%\end{figure}
+
+
+\end{document}
