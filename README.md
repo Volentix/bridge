@@ -33,6 +33,19 @@ npm install node-fetch
 ```
 git clone git@github.com:Volentix/bridge.git
 ```
+
+### Configure the oracle
+in src/bridge.js modify the following lines according to your setup:
+```
+const eth_contract_address = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'; 
+const eth_pool_address = '0x7D5592066FAE5cC14a62477EEb5074036610415c';
+const eos_token_contract = 'vtx222222222'
+const eos_pool_account = 'vtx222222222';
+const eos_account = 'quaremachina';
+const custodian_account = 'vltxtknaudit'; 
+const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
+```
+
 ### Run the oracle
 ```
 cd src
