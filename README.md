@@ -1,6 +1,6 @@
 # VTX Bridge v0.0.1
 Acts as a custodian for wrapping of ETH VTX and EOS VTX.
-
+![image](doc/abs2rel.jpg)
 ## Running the oracle
 
 ### Install openethereum
