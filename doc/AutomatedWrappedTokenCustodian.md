@@ -1,15 +1,3 @@
----
-abstract: |
-  The Volentix token, VTX was originally created on the main EOSIO
-  chain. Volentix Labs is offering ethereum users a way to purchase VTX
-  using wrapped tokens.
-author:
-- |
-  Sylvain Cormier\
-  `sylvain@volentixlabs.com`
-title: VTX token retire mechanism v0.0.1
----
-
 Introduction 
 ============
 
@@ -51,4 +39,4 @@ Custodians trade assets for wrapped tokens by minting (creation of
 wrapped tokens) and burning (reducing supply of wrapped tokens). The
 latter has been accomplished in this iteration. This mechanism can be
 used to to synchronize pools regardless of their provenances, as long as
-a the EOS contract is fed with the concerened balance.
+a the EOS contract is fed with the concerned balances.
