@@ -9,7 +9,7 @@ const json  = require("./build/contracts/VTX.json");
 const web31= new Web3('ws://127.0.0.1:8546');
 const web32 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
 const web33= new Web3('https://main-rpc.linkpool.io');
-const eth_contract_address = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'; 
+const eth_token_contract = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'; 
 const eth_pool_address = '0x7D5592066FAE5cC14a62477EEb5074036610415c';
 const eos_token_contract = 'vtx222222222'
 const eos_pool_account = 'vtx222222222';
@@ -24,7 +24,7 @@ async function main(){
 }
 
 async function eth_balance(web3_instance){   
-    const contract = new web3_instance.eth.Contract(json.abi, eth_contract_address); 
+    const contract = new web3_instance.eth.Contract(json.abi, eth_token_contract); 
     for (i =0;;i++) {
         await sleep(3000);
         new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
@@ -36,7 +36,6 @@ async function eth_balance(web3_instance){
         new_vtx_balance = new_vtx_balance.slice(0, -10);
         console.log(new_vtx_balance);
         send_balance_EOS(new_vtx_balance);
-        // //Query EOS chain
         const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
         eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
         eos_vtx_balance = await eos_vtx_balance;
