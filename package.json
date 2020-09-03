@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "async": "^3.2.0",
+    "eosjs": "^21.0.3",
+    "node-fetch": "^2.6.0",
+    "web3": "^1.2.11"
+  }
+}

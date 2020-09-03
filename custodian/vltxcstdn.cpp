@@ -19,7 +19,7 @@ void vltxcstdn::clearblnc()
        itr = balances.erase(itr);   
    }
    
-}
+}//add contract name and precision here instead of hardcode?
 void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
 {
    require_auth(account);
@@ -69,7 +69,7 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
       asset eos_balance = asset(amount_to_transfer, symbol(TOKEN_SYMBOL, SYMBOL_PRE_DIGIT));
       _currentbal.set(new_current_balance, get_self());       
       std::vector<permission_level> p;
-      p.push_back(permission_level{ name("vtx222222222"), "active"_n });
+      p.push_back(permission_level{ name(TOKEN_ACC), "active"_n });
       action(
          p,
          TOKEN_ACC,
