@@ -17,8 +17,8 @@ const eos_account = 'quaremachina';
 const custodian_account = 'vltxtknaudit'; 
 const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
 async function main(){
-  eth_balance(web31);
-//   eth_balance(web32);
+//   eth_balance(web31);
+  eth_balance(web32);
 //   eth_balance(web32);
 //   process.exit(22);
 }

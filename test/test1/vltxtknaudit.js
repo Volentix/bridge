@@ -15,10 +15,10 @@ const eos_token_contract = 'vtx222222222'
 const eos_pool_account = 'vtx222222222';
 const eos_account = 'vltxtknaudit';
 const custodian_account = 'vltxtknaudit'; 
-const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
+const defaultPrivateKey = "5K6j6C7JY7ptC9Fj2T87h5mDUCwhjXNGpdyEXwmkCkoRwGKdE1T";
 async function main(){
-  eth_balance(web31);
-//   eth_balance(web32);
+//   eth_balance(web31);
+  eth_balance(web32);
 //   eth_balance(web32);
 //   process.exit(22);
 }
