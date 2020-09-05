@@ -18,11 +18,21 @@ async function main(){
 }
 
 async function eth_balance(){  
+    let web3_instance= new Web3('http://127.0.0.1:8545');
+    let contract = new web3_instance.eth.Contract(json.abi, eth_token_contract);
+    
     for (i =0;;i++) {
-        const web3_instance= new Web3('ws://127.0.0.1:8546');
         try{
                 await sleep(3000);
-                const contract = new web3_instance.eth.Contract(json.abi, eth_token_contract);
+                while(web3_instance === 'undefined'){
+                    console.log('provider down, trying again')
+                    web3_instance = new Web3('http://127.0.0.1:8545');
+                    contract = new web3_instance.eth.Contract(json.abi, eth_token_contract);
+                    if(typeof web3_instance !== 'undefined'){
+                        break;
+                    }
+                }
+                
                 new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
                 new_vtx_balance = await new_vtx_balance;
                 from_wei = web3_instance.utils.fromWei(new_vtx_balance, 'ether');
@@ -39,16 +49,8 @@ async function eth_balance(){
                 console.log('EOS balance', eos_vtx_balance);
         }
         catch(err){
-            if(web3_instance){
-                console.log(err); 
-                console.log('web3 instance still running');
-                continue;
-            }
-            else
-            {
-                console.log('web3 failed');
-                console.log("provider is down, script will resume when it is back up")
-            }
+            
+            continue;
         }
     }
 }
@@ -88,7 +90,6 @@ function send_balance_EOS(balance, i){
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 
 main();
 
