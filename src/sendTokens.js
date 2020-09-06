@@ -5,8 +5,8 @@ var Tx = require("ethereumjs-tx").Transaction;
 const json  = require("./build/contracts/VTX.json");
 var EthUtil = require('ethereumjs-util');
 var Wallet = require('ethereumjs-wallet');
-const web3= new Web3('http://127.0.0.1:8545');
-// const web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')
+// const web3= new Web3('http://127.0.0.1:8545');
+const web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')
 const main = async () => {
     var myAddress = "0x7D5592066FAE5cC14a62477EEb5074036610415c";
     var destAddress = "0x0f36bE29953148490CFc3C8150100Ae94C10A9eF";
@@ -24,7 +24,7 @@ const main = async () => {
     console.log(`num transactions so far: ${count}`);
     count = count+1;
         
-    var gasPriceGwei = 14;
+    var gasPriceGwei = 20;
     var gasLimit = 3000000;
     // Chain ID of Ropsten Test Net is 3, replace it to 1 for Main Net
     var chainId = 3;
