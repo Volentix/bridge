@@ -1,4 +1,4 @@
-bridge:
+openethereum:
     image: openethereum/openethereum:latest
     command: --chain ropsten --cache-size 512 --pruning fast --warp --ui-interface all --jsonrpc-interface all --unsafe-expose --ws-interface all --ws-origins all
     ports:
@@ -7,14 +7,34 @@ bridge:
         - "8546:8546"
         - "30303:30303"
         - "30303:30303/udp"
-
+bridge:
     image: vdexbridge:latest
+    user: root  
     entrypoint: "bash -c \"\ 
-                node bridge-test/test/test1/quaremachina.js\
+    node /root/bridge/test/test1/quaremachina.js &&\
     \""
     ports:
         - "8180:8180"
         - "8545:8545"
         - "8546:8546"
         - "30303:30303"
-        - "30303:30303/udp"     
+        - "30303:30303/udp"
+        
+wallet:
+    container_name: eoslocal_wallet
+    image: eosio/eos:v1.5.2
+    command: /opt/eosio/bin/keosd --wallet-dir /opt/eosio/bin/data-dir --http-server-address=0.0.0.0:8901 --http-alias=wallet.eoslocal:8901 --http-validate-host 0 --verbose-http-errors
+    hostname: wallet
+    expose:
+        - 8901
+    ports:
+        - '8901:8901'
+    volumes:
+        - keosd-data-volume:/opt/eosio/bin/data-dir
+    environment:
+        # VIRTUAL_HOST: wallet.volentix.io
+        VIRTUAL_PORT: 8901
+    # networks:
+    #     default:
+    #     aliases:
+    #         - wallet.volentix.io
