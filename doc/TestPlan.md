@@ -1,17 +1,31 @@
+---
+author:
+- |
+  The Volentix team\
+  `sylvain@volentixlabs.com`
+title: VTX token retire mechanism test plan
+---
+
 Preparation
 ===========
 
-**Nodes on jungle test net**
+**Nodes on jungle test net** 8 nodes
 
-1.  setup node v44444444444
+1.  v44444444444
 
-2.  setup node quaremachina
+2.  quaremachina
 
-3.  setup node volentixtst5
+3.  volentixtst5
 
-4.  setup node vltxtknaudit
+4.  vltxtknaudit
 
-5.  setup node vtx222222222
+5.  x111111111111
+
+6.  x22222222222
+
+7.  x33333333333
+
+8.  vtx222222222
 
 **Create accounts**
 
@@ -35,10 +49,18 @@ Preparation
 
 8.  register nodes to v22222222222\
 
+**Docker network**\
+
+1.  eos wallet
+
+2.  open ethereum
+
+3.  oracle
+
 Tests
 =====
 
-1.  **Amount test**\
+1.  **Precision test**\
     All nodes send same amount.
 
     1.  amount upper/lower bounds: concordant balance
@@ -57,8 +79,14 @@ Tests
 
 4.  **Unregistration test**\
 
-5.  **Persistence test**\
+5.  **EOS bandwidth test**\
+
+6.  **Persistence test**\
 
     1.  Message to network less than 8 nodes with pesistency
 
     2.  Iterate through 16 nodes and shut 8 down
+
+    3.  Manage if provider is not available.
+
+    4.  Test values from providers

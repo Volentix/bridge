@@ -24,7 +24,8 @@ async function main(){
 }
 
 async function eth_balance(){  
-    let web3_instance= new Web3('http://127.0.0.1:8545');
+    let web3_instance = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c');
+    // let web3_instance= new Web3('http://127.0.0.1:8545');
     let contract = new web3_instance.eth.Contract(json.abi, eth_token_contract);
     
     for (i =0;;i++) {
