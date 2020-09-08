@@ -55,7 +55,7 @@ async function eth_balance(){
                 console.log('EOS balance', eos_vtx_balance);
         }
         catch(err){
-            console.out(err);
+            console.log(err);
             continue;
         }
     }
