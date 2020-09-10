@@ -1,11 +1,3 @@
----
-author:
-- |
-  The Volentix team\
-  `sylvain@volentixlabs.com`
-title: VTX token retire mechanism test plan
----
-
 Preparation
 ===========
 
@@ -75,18 +67,28 @@ Tests
 
     3.  Flooding/DDos
 
-3.  **Registration test**\
+3.  **Registration test**DONE\
 
-4.  **Unregistration test**\
+4.  **Unregistration test**DONE\
 
 5.  **EOS bandwidth test**\
 
-6.  **Persistence test**\
+6.  **Persistency test**IN PROGRESS\
 
-    1.  Message to network less than 8 nodes with pesistency
+    1.  uptime
 
-    2.  Iterate through 16 nodes and shut 8 down
+    2.  Message to network less than 8 nodes with pesistency
 
-    3.  Manage if provider is not available.
+    3.  Iterate through 16 nodes and shut 8 down
 
-    4.  Test values from providers
+    4.  Manage if provider is not available.
+
+    5.  Test values from providers
+
+7.  **Out of ressouces test**\
+
+    1.  CPU DONE
+
+    2.  Memory
+
+    3.  BW

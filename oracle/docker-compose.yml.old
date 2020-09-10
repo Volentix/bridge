@@ -8,26 +8,24 @@ openethereum:
         - "30303:30303"
         - "30303:30303/udp"
 bridge:
-    image: volentix/etheosoracle:0.0.1
+    image: volentix/vtxbridge:0.0.1
     user: root
     volumes:
-        - ./oracle/:/root
-        # - ./oracle/.env:/root/.env    
-    # environment:
-    #     - eth_token_contract=${ETH_TOKEN_CONTRACT}
-    #     - eth_pool_address= ${ETH_POOL_ADDRESS}
-    #     - eos_token-contact=${EOS_TOKEN_CONTRACT}
-    #     - eos_pool_account=${EOS_POOL_ACCOUNT}
-    #     - eos_account=${EOS_ACCOUNT}
-    #     - custodian_account=${CUSTODIAN_ACCOUNT}
+     - ./test/:/root
+     environment:
+        - eth_token_contract=${ETH_TOKEN_CONTRACT}
+        - eth_pool_address= ${ETH_POOL_ADDRESS}
+        - eos_token-contact=${EOS_TOKEN_CONTRACT}
+        - eos_pool_account=${EOS_POOL_ACCOUNT}
+        - eos_account=${EOS_ACCOUNT}
+        - custodian_account=${CUSTODIAN_ACCOUNT}
+        - defaultprivatekey=${DEFAULTPRIVATEKEY}
     entrypoint: "bash -c \"\ 
     echo '************************' && \
-    node -r /root/.env /root/oracle.js && \
+        node /root/test1/quaremachina.js && \
     echo '************************' \
     \""
-    
-    ports:
-        - "5000:5000"    
+        
 # wallet:
 #     container_name: eoslocal_wallet
 #     image: eosio/eos:v1.5.2

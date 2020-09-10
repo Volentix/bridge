@@ -1,63 +1,72 @@
 # VTX Bridge v0.0.1
-Acts as a custodian for wrapping of ETH VTX and EOS VTX.
 ![image](doc/abs2rel.jpg)
 ## Running the oracle
+Initially created for the purpose of wrapping of ETH VTX and EOS VTX
+## Components:
+1. Oracle bridge 
+2. EOS custodian
 
-### Install openethereum
-1. Install rust
+## Prerequisites
+### linux
+- This install was tested on Bionic 18.04 (LTS)
+Check your Ubuntu: `Activities -> about`
+#### Docker installation
+Docker software is required to simplify the vDex Node installation.
+Follow the instruction below:
+Just in case, it is recommended to remove old versions of docker, if they were installed earlier
+```bash
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
-curl https://sh.rustup.rs -sSf | sh
+```bash
+sudo apt-get update
+sudo apt-get install build-essential apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $(whoami)
+reboot # or log out and back in
 ```
-2. Clone the repository
+### clone directory
 ```
-git clone https://github.com/openethereum/openethereum
+git clone https://github.com/Volentix/bridge.git
+cd bridge
 ```
-3. build openethereum
-```
-cd openethereum
-cargo build --release --features final
-```
-4. run openethereum
-```
-cd ../
-$ .openethereum/target/release/openethereum  --config config.toml&
-```
-### Install necessary software 
-```
-apt install nodejs npm
-npm install web3
-npm install eosjs
-npm install node-fetch
-```
-### clone the repository
-```
-git clone git@github.com:Volentix/bridge.git
-```
-
 ### Configure the oracle
-in src/bridge.js modify the following lines according to your setup:
+modify the following lines according to your setup in
+oracle/.env:
 ```
-const eth_token_contract = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'; -> ethereum token contract address
+cd oracle
 
-const eth_pool_address = '0x7D5592066FAE5cC14a62477EEb5074036610415c'; ->Ethereum pool address
-
-const eos_token_contract = 'vtx222222222' -> EOS token contract account
-
-const eos_pool_account = 'vtx222222222'; -> EOS pool account
-
-const eos_account = 'quaremachina'; -> Your user/node EOS account
-
-const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS"; -> your EOS private key (not for production) 
-
-const custodian_account = 'vltxtknaudit';  -> EOS custodian account
+cat .env
 
 ```
+##### Edit .env file:
+ETH_TOKEN_CONTRACT = <ethereum token contract address>
+ETH_POOL_ADDRESS = <Ethereum pool address>
+EOS_TOKEN_CONTRACT = <EOS token contract account>
+EOS_POOL_ACCOUNT = <EOS pool account>
+EOS_ACCOUNT = <Your user/node EOS account>
+CUSTODIAN_ACCOUNT = <EOS custodian account>
+
+##### Insert private key(temporary)
+In oracle.js:\
+line 20
+```
+const defaultPrivateKey = '5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS'
+```
+##### Insert Infura key(temporary)
+line 33
+```
+web3.eth.isSyncing()
+              .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')).catch(result => {return result;});
+```
+    
 ### Run the oracle
+
 ```
-cd src
-```
-```
-node bridge.js
+cd ..
+docker-compose up
 ```
 ## Deploying the custodian contract on EOSIO
 ###
