@@ -2048,6 +2048,9 @@ async function eth_balance(){
               web3 = new Web3('ws://127.0.0.1:8546');
               web3.eth.isSyncing()
               .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')).catch(result => {});
+              console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+              console.log(getCurrentProvider(web3));
+              console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
               contract = new web3.eth.Contract(json.abi, eth_token_contract);
               await sleep(1000);
                 new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
@@ -2107,6 +2110,46 @@ function send_balance_EOS(balance, i){
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+function getCurrentProvider(web3) {
+  if (!web3) return 'unknown';
+
+  if (web3.currentProvider.isMetaMask)
+      return 'metamask';
+
+  if (web3.currentProvider.isTrust)
+      return 'trust';
+
+  if (web3.currentProvider.isGoWallet)
+      return 'goWallet';
+
+  if (web3.currentProvider.isAlphaWallet)
+      return 'alphaWallet';
+
+  if (web3.currentProvider.isStatus)
+      return 'status';
+
+  if (web3.currentProvider.isToshi)
+      return 'coinbase';
+
+  if (typeof __CIPHER__ !== 'undefined')
+      return 'cipher';
+
+  if (web3.currentProvider.constructor.name === 'EthereumProvider')
+      return 'mist';
+
+  if (web3.currentProvider.constructor.name === 'Web3FrameProvider')
+      return 'parity';
+
+  if (web3.currentProvider.host && web3.currentProvider.host.indexOf('infura') !== -1)
+      return 'infura';
+
+  if (web3.currentProvider.host && web3.currentProvider.host.indexOf('localhost') !== -1)
+      return 'localhost';
+
+  return 'unknown';
+}
+
 
 main();
 
