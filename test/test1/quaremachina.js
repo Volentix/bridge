@@ -2045,11 +2045,10 @@ let contract;
 async function eth_balance(){
     for (i =0;;i++) {
         try{   
-              web3 = new Web3('http://127.0.0.1:8545');
+              web3 = new Web3('ws://127.0.0.1:8546');
               web3.eth.isSyncing()
-              .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c'));
-              let contract = new web3.eth.Contract(json.abi, eth_token_contract);
-              console.log('hey')
+              .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')).catch(result => {});
+              contract = new web3.eth.Contract(json.abi, eth_token_contract);
               await sleep(1000);
                 new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
                 new_vtx_balance = await new_vtx_balance;
