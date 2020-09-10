@@ -32,7 +32,6 @@ async function eth_balance(){
                         break;
                     }
                 }
-                
                 new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
                 new_vtx_balance = await new_vtx_balance;
                 from_wei = web3_instance.utils.fromWei(new_vtx_balance, 'ether');
@@ -49,7 +48,6 @@ async function eth_balance(){
                 console.log('EOS balance', eos_vtx_balance);
         }
         catch(err){
-            
             continue;
         }
     }
