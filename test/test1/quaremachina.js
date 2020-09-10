@@ -2018,7 +2018,7 @@ const json = {
       "methods": {}
     }
   }
-  //npm install --save web3-net  
+//Include in doc npm install --save web3-net  
 const Web3 = require('web3');
 const { Api, JsonRpc, RpcError } = require('eosjs');
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig'); // development only
@@ -2035,7 +2035,6 @@ const custodian_account = 'vltxtknaudit';
 const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
 const Eth = require('web3-eth');
 console.log('Current directory: ' + process.cwd());
-// create a contract that emit events for all type of events.
 
 async function main(){
   eth_balance();
@@ -2043,17 +2042,15 @@ async function main(){
 let web3;
 let contract;
 
-// web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c');
-let sync = false;
-
 async function eth_balance(){
     for (i =0;;i++) {
         try{   
               web3 = new Web3('http://127.0.0.1:8545');
-                web3.eth.isSyncing()
-                .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c'));
-                let contract = new web3.eth.Contract(json.abi, eth_token_contract);
-                await sleep(3000);
+              web3.eth.isSyncing()
+              .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c'));
+              let contract = new web3.eth.Contract(json.abi, eth_token_contract);
+              console.log('hey')
+              await sleep(1000);
                 new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
                 new_vtx_balance = await new_vtx_balance;
                 from_wei = web3.utils.fromWei(new_vtx_balance, 'ether');
