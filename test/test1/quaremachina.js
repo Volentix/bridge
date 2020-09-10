@@ -2055,20 +2055,20 @@ async function eth_balance(){
               console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
               contract = new web3.eth.Contract(json.abi, eth_token_contract);
               await sleep(1000);
-                new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
-                new_vtx_balance = await new_vtx_balance;
-                from_wei = web3.utils.fromWei(new_vtx_balance, 'ether');
-                from_wei = from_wei.toString();
-                from_wei = from_wei.slice(0, -6);
-                new_vtx_balance = new_vtx_balance.toString();
-                new_vtx_balance = new_vtx_balance.slice(0, -10);
-                console.log('Raw balance sent to custodian', new_vtx_balance);
-                send_balance_EOS(new_vtx_balance);
-                const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
-                eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
-                eos_vtx_balance = await eos_vtx_balance;
-                console.log('ETH balance', from_wei);
-                console.log('EOS balance', eos_vtx_balance);
+              new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
+              new_vtx_balance = await new_vtx_balance;
+              from_wei = web3.utils.fromWei(new_vtx_balance, 'ether');
+              from_wei = from_wei.toString();
+              from_wei = from_wei.slice(0, -6);
+              new_vtx_balance = new_vtx_balance.toString();
+              new_vtx_balance = new_vtx_balance.slice(0, -10);
+              console.log('Raw balance sent to custodian', new_vtx_balance);
+              send_balance_EOS(new_vtx_balance);
+              const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+              eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
+              eos_vtx_balance = await eos_vtx_balance;
+              console.log('ETH balance', from_wei);
+              console.log('EOS balance', eos_vtx_balance);
         }
         catch(err){
             console.log(err);

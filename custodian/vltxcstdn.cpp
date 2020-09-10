@@ -4,6 +4,7 @@ using namespace eosio;
 using std::string;
 
 void vltxcstdn::initbalance(uint64_t balance) {
+   require_auth(get_self());
    currentbal initial_current_balance;
    initial_current_balance.balance = balance;
    _currentbal.get_or_create(get_self(), initial_current_balance);
@@ -12,7 +13,7 @@ void vltxcstdn::initbalance(uint64_t balance) {
 
 void vltxcstdn::clearblnc()
 {  
-   // require_auth(get_self());
+   require_auth(get_self());
    etherium_balances balances(get_self(), get_self().value);
    auto itr = balances.begin();
    while (itr != balances.end()) {
@@ -24,7 +25,7 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
 {
    require_auth(account);
    //make sure the node is registered
-   // checknode(account);
+   checknode(account);
    //insert data point
    etherium_balances balances(get_self(), get_self().value);
    auto itr = balances.begin();   
@@ -108,6 +109,6 @@ void vltxcstdn::rmnode(name account)
 void vltxcstdn::checknode(name account)
 {
    auto itr = _nodelist.find(account.value);
-   check(itr == _nodelist.end(), "account is listed.");
+   check(itr != _nodelist.end(), "account is not listed.");
 };
 

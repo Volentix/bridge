@@ -12,6 +12,14 @@ bridge:
     user: root
     volumes:
      - ./test/:/root
+     environment:
+        - eth_token_contract=${ETH_TOKEN_CONTRACT}
+        - eth_pool_address= ${ETH_POOL_ADDRESS}
+        - eos_token-contact=${EOS_TOKEN_CONTRACT}
+        - eos_pool_account=${EOS_POOL_ACCOUNT}
+        - eos_account=${EOS_ACCOUNT}
+        - custodian_account=${CUSTODIAN_ACCOUNT}
+        - defaultprivatekey=${DEFAULTPRIVATEKEY}
     entrypoint: "bash -c \"\ 
     echo '************************' && \
         node /root/test1/quaremachina.js && \
