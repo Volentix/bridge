@@ -92,3 +92,10 @@ Tests
     2.  Memory
 
     3.  BW
+
+Considerations
+==============
+
+1.  Should there be a mechanism for the case where there is no more
+    values being fed to the oracle, keeping the eth side from issuing
+    for that pool?

@@ -11,7 +11,7 @@ Initially created for the purpose of wrapping of ETH VTX and EOS VTX
 - This install was tested on Bionic 18.04 (LTS)
 Check your Ubuntu: `Activities -> about`
 #### Docker installation
-Docker software is required to simplify the vDex Node installation.
+Docker software is required to simplify node installation.
 Follow the instruction below:
 Just in case, it is recommended to remove old versions of docker, if they were installed earlier
 ```bash

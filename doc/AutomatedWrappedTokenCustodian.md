@@ -1,15 +1,3 @@
----
-abstract: |
-  The Volentix token, VTX was originally created on the main EOSIO
-  chain. Volentix Labs is offering ethereum users a way to purchase VTX
-  using wrapped tokens.
-author:
-- |
-  Sylvain Cormier\
-  `sylvain@volentixlabs.com`
-title: VTX token retire mechanism v0.0.1
----
-
 Introduction 
 ============
 

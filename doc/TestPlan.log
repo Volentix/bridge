@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  10 SEP 2020 14:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  10 SEP 2020 19:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,24 +419,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--95
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--102
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 115.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 121.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 115.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 121.
  (./TestPlan.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 115.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 115.
-Package rerunfilecheck Info: File `TestPlan.out' has not changed.
-(rerunfilecheck)             Checksum: 06FF9BDD9DC60E45A33ABC8B6F1A07B6;86.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 115.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 121.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 121.
+
+
+Package rerunfilecheck Warning: File `TestPlan.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `TestPlan.out':
+(rerunfilecheck)             Before: 06FF9BDD9DC60E45A33ABC8B6F1A07B6;86
+(rerunfilecheck)             After:  6E999F4DBED98273BAF2DA070CC601EE;135.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
  ) 
 Here is how much of TeX's memory you used:
- 7574 strings out of 480608
- 113709 string characters out of 5903631
+ 7577 strings out of 480608
+ 113732 string characters out of 5903631
  382551 words of memory out of 5000000
  23295 multiletter control sequences out of 15000+600000
  562637 words of font info for 41 fonts, out of 8000000 for 9000
@@ -450,10 +457,10 @@ pe1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/
 lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr17.pf
 b></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/lo
 cal/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on TestPlan.pdf (3 pages, 164442 bytes).
+Output written on TestPlan.pdf (3 pages, 165691 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 45 named destinations out of 1000 (max. 500000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
+ 48 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
