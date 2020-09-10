@@ -48,6 +48,10 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
          if(itr->balance == previous){
             same++;
          }
+         //if previous account skip (no account can commint twice in a row)
+         // if(itr->account == account){
+         //    return;
+         // }
          previous = itr->balance;   
          size++;
          itr++;
