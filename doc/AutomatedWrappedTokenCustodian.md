@@ -1,3 +1,15 @@
+---
+abstract: |
+  The Volentix token, VTX was originally created on the main EOSIO
+  chain. Volentix Labs is offering ethereum users a way to purchase VTX
+  using wrapped tokens.
+author:
+- |
+  Sylvain Cormier\
+  `sylvain@volentixlabs.com`
+title: VTX token retire mechanism v0.0.1
+---
+
 Introduction 
 ============
 
@@ -31,6 +43,16 @@ calculated and the amount is sent to be retired on from the from the
 total VTX supply on the EOS chain.
 
 ![](bridge.png){#fig:whitebackground-ecosystem02}
+
+Conditions
+==========
+
+1.  EOS custodian must be must be updated continuously by a minimum of 8
+    oracles.
+
+2.  No oracle can submit its value twice.
+
+3.  Sources must register to the Volentix node network.
 
 Conclusion
 ==========
