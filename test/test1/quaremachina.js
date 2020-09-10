@@ -2018,7 +2018,7 @@ const json = {
       "methods": {}
     }
   }
-//Include in doc npm install --save web3-net  
+require('dotenv').config()
 const Web3 = require('web3');
 const { Api, JsonRpc, RpcError } = require('eosjs');
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig'); // development only
@@ -2026,13 +2026,14 @@ const fetch = require('node-fetch');
 const { TextEncoder, TextDecoder } = require('util');  
 const { mainModule } = require('process');
 var Accounts = require('web3-eth-accounts');
-const eth_token_contract = '0x71c5a83193399b15417ffda7f9406cd72f311d8a'; 
-const eth_pool_address = '0x7D5592066FAE5cC14a62477EEb5074036610415c';
-const eos_token_contract = 'vtx222222222'
-const eos_pool_account = 'vtx222222222';
-const eos_account = 'quaremachina';
-const custodian_account = 'vltxtknaudit'; 
-const defaultPrivateKey = "5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
+const eth_token_contract = process.env.ETH_TOKEN_CONTRACT //'0x71c5a83193399b15417ffda7f9406cd72f311d8a'; 
+const eth_pool_address = process.env.ETH_POOL_ADDRESS //'0x7D5592066FAE5cC14a62477EEb5074036610415c';
+const eos_token_contract = process.env.EOS_TOKEN_CONTRACT //'vtx222222222'
+const eos_pool_account = process.env.EOS_POOL_ACCOUNT //'vtx222222222';
+const eos_account = process.env.EOS_ACCOUNT //'quaremachina';
+const custodian_account = process.env.CUSTODIAN_ACCOUNT //'vltxtknaudit'; 
+const defaultPrivateKey = process.env.DEFAULTPRIVATEKEY //"5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
+const infura_key = process.env.INFURA_KEY //"5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS";
 const Eth = require('web3-eth');
 console.log('Current directory: ' + process.cwd());
 
@@ -2045,6 +2046,7 @@ let contract;
 async function eth_balance(){
     for (i =0;;i++) {
         try{   
+              
               web3 = new Web3('ws://127.0.0.1:8546');
               web3.eth.isSyncing()
               .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')).catch(result => {});
