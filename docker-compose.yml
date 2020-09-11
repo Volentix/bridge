@@ -26,9 +26,9 @@ bridge:
     echo '************************' \
     \""
     
-    ports:
-        - "5000:5000"    
-# wallet:
+#     ports:
+#         - "5000:5000"    
+# # wallet:
 #     container_name: eoslocal_wallet
 #     image: eosio/eos:v1.5.2
 #     command: /opt/eosio/bin/keosd --wallet-dir /opt/eosio/bin/data-dir --http-server-address=0.0.0.0:8901 --http-alias=wallet.eoslocal:8901 --http-validate-host 0 --verbose-http-errors
