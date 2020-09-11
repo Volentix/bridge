@@ -42,12 +42,12 @@ cat .env
 
 ```
 ##### Edit .env file:
-ETH_TOKEN_CONTRACT = <ethereum token contract address><br/>
-ETH_POOL_ADDRESS = <Ethereum pool address><br/>
-EOS_TOKEN_CONTRACT = <EOS token contract account><br/>
-EOS_POOL_ACCOUNT = <EOS pool account><br/>
-EOS_ACCOUNT = <Your user/node EOS account><br/>
-CUSTODIAN_ACCOUNT = <EOS custodian account><br/>
+ETH_TOKEN_CONTRACT = <ethereum token contract address>\
+ETH_POOL_ADDRESS = <Ethereum pool address>\
+EOS_TOKEN_CONTRACT = <EOS token contract account>\
+EOS_POOL_ACCOUNT = <EOS pool account>\
+EOS_ACCOUNT = <Your user/node EOS account>\
+CUSTODIAN_ACCOUNT = <EOS custodian account>\
 
 ##### Insert private key(temporary *** test)
 In oracle.js:\
