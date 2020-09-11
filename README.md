@@ -27,12 +27,12 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $(whoami)
 reboot # or log out and back in
 ```
-### clone directory
+## clone directory
 ```
 git clone https://github.com/Volentix/bridge.git
 cd bridge
 ```
-### Configure the oracle
+## Configure the oracle
 modify the following lines according to your setup in
 oracle/.env:
 ```
@@ -42,24 +42,24 @@ cat .env
 
 ```
 ##### Edit .env file:
-ETH_TOKEN_CONTRACT = <ethereum token contract address>
-ETH_POOL_ADDRESS = <Ethereum pool address>
-EOS_TOKEN_CONTRACT = <EOS token contract account>
-EOS_POOL_ACCOUNT = <EOS pool account>
-EOS_ACCOUNT = <Your user/node EOS account>
-CUSTODIAN_ACCOUNT = <EOS custodian account>
+ETH_TOKEN_CONTRACT = <ethereum token contract address><br/>
+ETH_POOL_ADDRESS = <Ethereum pool address><br/>
+EOS_TOKEN_CONTRACT = <EOS token contract account><br/>
+EOS_POOL_ACCOUNT = <EOS pool account><br/>
+EOS_ACCOUNT = <Your user/node EOS account><br/>
+CUSTODIAN_ACCOUNT = <EOS custodian account><br/>
 
-##### Insert private key(temporary)
+##### Insert private key(temporary *** test)
 In oracle.js:\
 line 20
 ```
-const defaultPrivateKey = '5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS'
+const defaultPrivateKey = '<EOS active private key>'
 ```
-##### Insert Infura key(temporary)
+##### Insert Infura key(temporary *** test)
 line 33
 ```
 web3.eth.isSyncing()
-              .then(web3 = new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')).catch(result => {return result;});
+              .then(web3 = new Web3('https://ropsten.infura.io/v3/<INFURA_KEY>')).catch(result => {return result;});
 ```
     
 ### Run the oracle
