@@ -1,7 +1,6 @@
 
 
 let json = require('./VTX.json');
-// require('dotenv').config({silent: true})
 const Web3 = require('web3');
 const { Api, JsonRpc, RpcError } = require('eosjs');
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig'); 
@@ -18,54 +17,57 @@ const eos_pool_account = process.env.EOS_POOL_ACCOUNT
 const eos_account = process.env.EOS_ACCOUNT 
 const custodian_account = process.env.CUSTODIAN_ACCOUNT 
 const defaultPrivateKey = '5KkddYRe4VJdp5E5m8oiZiJuzGD6F2CVR5zcv8C2hbsCv5sZ9ZS'
+const node_ip_address = process.env.NODE_IP_ADDRESS;
 
-async function main(){
-  eth_balance();
-}
 let web3;
 let contract;
 let check; 
+// let url = 'http://' + node_ip_address + ':8545'; 
 
+async function main(){
+    eth_balance();
+  }
 async function eth_balance(){
     for (i =0;;i++) {
-        try{   
-              web3 = new Web3('http://127.0.0.1:8545');
-              check = await web3.eth.isSyncing();  
-              if(check){
-                console.log('Openethereum not yet synced: ', check.highestBlock - check.currentBlock, ' blocks to go');  
-                console.log('Meantime, Infura')
-                web3 =new Web3('https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c')
-              }
-              
-              console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-              console.log(getCurrentProvider(web3));
-              console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
-              contract = new web3.eth.Contract(json.abi, eth_token_contract);
-              await sleep(3000);
-              new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
-              new_vtx_balance = await new_vtx_balance;
-              from_wei = web3.utils.fromWei(new_vtx_balance, 'ether');
-              from_wei = from_wei.toString();
-              from_wei = from_wei.slice(0, -6);
-              new_vtx_balance = new_vtx_balance.toString();
-              new_vtx_balance = new_vtx_balance.slice(0, -10);
-              console.log('Raw balance sent to custodian', new_vtx_balance);
-              send_balance_EOS(new_vtx_balance);
-              const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
-              eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
-              eos_vtx_balance = await eos_vtx_balance;
-              console.log('ETH balance', from_wei);
-              console.log('EOS balance', eos_vtx_balance);
-              
-        }
-        catch(err){
-            console.log(err);
-            continue;
+            var web3Provider = new Web3.providers.HttpProvider('http://openethereum:8545');
+            var web3 = new Web3(web3Provider);
+            check = web3.eth.isSyncing().then(result=>{return result;}).catch(result => {});
+            check = await check;
+            try{
+                if((check.highestBlock - check.currentBlock) > 0  || check.currentBlock == 0 || check.highestBlock == 0){
+                    console.log('Openethereum not yet synced: ', check.highestBlock - check.currentBlock, ' blocks to go');  
+                    console.log('Meantime, Chainlink')
+                    // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten-rpc.linkpool.io/"));
+                    web3 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
+                }
+                await sleep(3000);
+                // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+                // console.log(getCurrentProvider(web3));
+                // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
+                contract = new web3.eth.Contract(json.abi, eth_token_contract);
+                new_vtx_balance = contract.methods.balanceOf(eth_pool_address).call((err, result) => {}); 
+                new_vtx_balance = await new_vtx_balance;
+                from_wei = web3.utils.fromWei(new_vtx_balance, 'ether');
+                from_wei = from_wei.toString();
+                from_wei = from_wei.slice(0, -6);
+                new_vtx_balance = new_vtx_balance.toString();
+                new_vtx_balance = new_vtx_balance.slice(0, -10);
+                console.log('Raw balance sent to custodian', new_vtx_balance);
+                if(new_vtx_balance > 0){
+                    send_balance_EOS(new_vtx_balance);
+                }
+                const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
+                eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
+                eos_vtx_balance = await eos_vtx_balance;
+                console.log('ETH balance', from_wei);
+                console.log('EOS balance', eos_vtx_balance);
+        }catch(err){
+            console.log('provider not available. wait........');
         }
     }
 }
 
-function send_balance_EOS(balance, i){
+function send_balance_EOS(balance){
     var rpc;
     try{
         const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);

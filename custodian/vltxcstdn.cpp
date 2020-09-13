@@ -1,5 +1,7 @@
 #include "vltxcstdn.hpp"
 
+#include<string>
+
 using namespace eosio;
 using std::string;
 
@@ -67,7 +69,11 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
       send = true;
    }
    //determine amount
+   uint64_t test = 3;
    uint64_t amount_to_transfer = (current_balance - balance);
+   std::string amount = std::to_string(amount_to_transfer);
+   amount = "Impossible amount to transfer: " + amount;
+   check(amount_to_transfer >= 0, amount);
    currentbal new_current_balance;
    new_current_balance.balance = balance;
    if (amount_to_transfer > 0 && send == true){
@@ -82,6 +88,8 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
          std::make_tuple(eos_balance, std::string("test")) 
       ).send();
    }
+   amount_to_transfer = 0;
+   check(amount_to_transfer == 0, "Value sent");
 }
 
 void vltxcstdn::regnode(name account)

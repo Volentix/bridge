@@ -1,48 +1,64 @@
-openethereum:
-    image: openethereum/openethereum:latest
-    command: --chain ropsten --cache-size 512 --pruning fast --jsonrpc-interface all --unsafe-expose --ws-interface all --ws-origins all
-    ports:
-        - "8180:8180"
-        - "8545:8545"
-        - "8546:8546"
-        - "30303:30303"
-        - "30303:30303/udp"
-bridge:
-    image: volentix/etheosoracle:0.0.1
-    user: root
-    volumes:
-        - ./oracle/:/root
-        # - ./oracle/.env:/root/.env    
-    # environment:
-    #     - eth_token_contract=${ETH_TOKEN_CONTRACT}
-    #     - eth_pool_address= ${ETH_POOL_ADDRESS}
-    #     - eos_token-contact=${EOS_TOKEN_CONTRACT}
-    #     - eos_pool_account=${EOS_POOL_ACCOUNT}
-    #     - eos_account=${EOS_ACCOUNT}
-    #     - custodian_account=${CUSTODIAN_ACCOUNT}
-    entrypoint: "bash -c \"\ 
-    echo '************************' && \
-    node -r /root/.env /root/oracle.js && \
-    echo '************************' \
-    \""
-    
-#     ports:
-#         - "5000:5000"    
-# # wallet:
-#     container_name: eoslocal_wallet
-#     image: eosio/eos:v1.5.2
-#     command: /opt/eosio/bin/keosd --wallet-dir /opt/eosio/bin/data-dir --http-server-address=0.0.0.0:8901 --http-alias=wallet.eoslocal:8901 --http-validate-host 0 --verbose-http-errors
-#     hostname: wallet
-#     expose:
-#         - 8901
-#     ports:
-#         - '8901:8901'
-#     volumes:
-#         - keosd-data-volume:/opt/eosio/bin/data-dir
-#     environment:
-#         # VIRTUAL_HOST: wallet.volentix.io
-#         VIRTUAL_PORT: 8901
-    # networks:
-    #     default:
-    #     aliases:
-    #         - wallet.volentix.io
+version: "3.8"
+services:
+    openethereum:
+        image: openethereum/openethereum:latest
+        command: --chain ropsten --jsonrpc-interface all --unsafe-expose 
+        ports:
+            - "8180:8180"
+            - "8545:8545"
+            - "8546:8546"
+            - "30303:30303"
+            - "30303:30303/udp"
+        # networks:
+        #     volentix:
+        #         ipv4_address: 172.20.0.3
+    bridge:
+        image: volentix/etheosoracle:0.0.1
+        user: root
+        depends_on:
+            - openethereum
+        volumes:
+            - ./oracle/:/root
+            # - ./oracle/.env:/root/.env    
+        environment:
+        #     - eth_token_contract=${ETH_TOKEN_CONTRACT}
+        #     - eth_pool_address= ${ETH_POOL_ADDRESS}
+        #     - eos_token-contact=${EOS_TOKEN_CONTRACT}
+        #     - eos_pool_account=${EOS_POOL_ACCOUNT}
+        #     - eos_account=${EOS_ACCOUNT}
+        #     - custodian_account=${CUSTODIAN_ACCOUNT}
+              - node_ip_address=${NODE_IP_ADDRESS}  
+        entrypoint: "bash -c \"\ 
+        echo '************************' && \
+        a='NODE_IP_ADDRESS=' && \
+        b=$$(hostname -i) && \
+        node -r /root/.env /root/oracle.js && \
+        echo '************************' \
+        \""
+# networks:
+#     volentix:
+#         driver: bridge
+#         ipam:
+#         driver: default
+#         config:
+#         - subnet: 172.20.0.0/24
+            
+           
+    # # wallet:
+    #     container_name: eoslocal_wallet
+    #     image: eosio/eos:v1.5.2
+    #     command: /opt/eosio/bin/keosd --wallet-dir /opt/eosio/bin/data-dir --http-server-address=0.0.0.0:8901 --http-alias=wallet.eoslocal:8901 --http-validate-host 0 --verbose-http-errors
+    #     hostname: wallet
+    #     expose:
+    #         - 8901
+    #     ports:
+    #         - '8901:8901'
+    #     volumes:
+    #         - keosd-data-volume:/opt/eosio/bin/data-dir
+    #     environment:
+    #         # VIRTUAL_HOST: wallet.volentix.io
+    #         VIRTUAL_PORT: 8901
+        # networks:
+        #     default:
+        #     aliases:
+        #         - wallet.volentix.io
