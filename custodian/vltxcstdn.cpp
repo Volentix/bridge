@@ -88,8 +88,6 @@ void vltxcstdn::updtblnc(name account, uint64_t balance, uint64_t timestamp)
          std::make_tuple(eos_balance, std::string("test")) 
       ).send();
    }
-   amount_to_transfer = 0;
-   check(amount_to_transfer == 0, "Value sent");
 }
 
 void vltxcstdn::regnode(name account)

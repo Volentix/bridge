@@ -55,6 +55,9 @@ async function eth_balance(){
                 console.log('Raw balance sent to custodian', new_vtx_balance);
                 if(new_vtx_balance > 0){
                     send_balance_EOS(new_vtx_balance);
+                    var txDetail = await eos.getTransaction(req.params.txid);
+                    console.log(txDetail.trx.receipt.status)
+                    
                 }
                 const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
                 eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
@@ -75,7 +78,7 @@ function send_balance_EOS(balance){
         const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
         const timestamp = Date.now(); // Unix timestamp in milliseconds
         (async () => {
-            const result = await api.transact({
+            result = await api.transact({
             actions: [{
                 account: custodian_account,
                 name: 'updtblnc',
@@ -95,6 +98,7 @@ function send_balance_EOS(balance){
             });
             console.dir(result);
         })();
+        console.log(result);
     }catch(err){
         console.log(err);
     }
