@@ -32,7 +32,7 @@ services:
         echo '************************' && \
         a='NODE_IP_ADDRESS=' && \
         b=$$(hostname -i) && \
-        node -r /root/.env /root/oracle.js && \
+        node -r /root/.env /root/oracle_test.js && \
         echo '************************' \
         \""
 # networks:
