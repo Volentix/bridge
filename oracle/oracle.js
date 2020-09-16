@@ -34,12 +34,12 @@ async function eth_balance(){
             check = web3.eth.isSyncing().then(result=>{return result;}).catch(result => {});
             check = await check;
             try{
-                if((check.highestBlock - check.currentBlock) > 0  || check.currentBlock == 0 || check.highestBlock == 0){
-                    console.log('Openethereum not yet synced: ', check.highestBlock - check.currentBlock, ' blocks to go');  
-                    console.log('Meantime, Chainlink')
-                    // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten-rpc.linkpool.io/"));
-                    web3 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
-                }
+                // if((check.highestBlock - check.currentBlock) > 0  || check.currentBlock == 0 || check.highestBlock == 0){
+                //     console.log('Openethereum not yet synced: ', check.highestBlock - check.currentBlock, ' blocks to go');  
+                //     console.log('Meantime, Chainlink')
+                //     web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten-rpc.linkpool.io/"));
+                //     // web3 = new Web3("https://ropsten.infura.io/v3/c3436ae558954d85ae242a2ea517475c");
+                // }
                 await sleep(3000);
                 // console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@');
                 // console.log(getCurrentProvider(web3));
@@ -55,9 +55,6 @@ async function eth_balance(){
                 console.log('Raw balance sent to custodian', new_vtx_balance);
                 if(new_vtx_balance > 0){
                     send_balance_EOS(new_vtx_balance);
-                    var txDetail = await eos.getTransaction(req.params.txid);
-                    console.log(txDetail.trx.receipt.status)
-                    
                 }
                 const rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch });
                 eos_vtx_balance = rpc.get_currency_balance(eos_pool_account, eos_pool_account, 'WVTX').then((balance) => {return balance})
@@ -77,6 +74,7 @@ function send_balance_EOS(balance){
         rpc = new JsonRpc('https://jungle2.cryptolions.io:443', { fetch }); 
         const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
         const timestamp = Date.now(); // Unix timestamp in milliseconds
+
         (async () => {
             result = await api.transact({
             actions: [{
