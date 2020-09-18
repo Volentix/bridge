@@ -2,7 +2,13 @@
 \usepackage{url}
 \usepackage{cite}
 \usepackage{listings}
-\usepackage{xcolor} % for setting colors
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage[dvipsnames]{xcolor}
+
+%\usepackage{xcolor} % for setting colors
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -49,59 +55,60 @@
 		\item  x33333333333
 		\item  vtx222222222				
 	  \end{enumerate}
+ 
 \textbf{Create accounts}
-\begin{enumerate}
-\item create v11111111111, v222222222222, v33333333333, v55555555555
+\begin{enumerate}	
+\item create v11111111111, v222222222222, v33333333333, v55555555555 *	\color{green} DONE
+
 \end{enumerate} 
- \textbf{Other preparatory actions}
+ \textbf{Actions}
   		\begin{enumerate}
 		  \item Mint 2 test pools of  100000.00000000 ERC-777 VTX on Ropsten
 		  \item Deploy TVTX token contracts on v11111111111 
 		  \item Deploy custodian on v22222222222
 		  \item set v22222222222 permissions for v11111111111
 		  \item Issue token pool v33333333333
-		  \item Initialize v22222222222 \textit{currentbal}
-		  \item Clear v22222222222 \textit{balances} buffer
-		    \item register nodes to v22222222222\\
+		  \item Initialize v22222222222 currentbal * {\color{green} DONE} 
+		  \item Clear v22222222222 balances buffer * {\color{green} DONE} 
+ 		  \item register nodes to v22222222222 * {\color{green} DONE}
 	 \end{enumerate}
    \textbf{Docker network}\\
   \begin{enumerate}
-  	\item eos wallet
-  	\item open ethereum
-  	\item oracle
+  	\item eos wallet	* {\color{green} DONE}
+  	\item open ethereum 	*	 {\color{green} DONE}
+  	\item oracle	*  {\color{green} DONE}
   \end{enumerate}
 
 \section{Tests}
 
 					\begin{enumerate}
-						
 					\item \textbf{Precision test}\\
-					All nodes send same amount.
+					All nodes send same amount. 	* {\color{green} DONE}
 						\begin{enumerate}
-						\item amount upper/lower bounds: concordant balance
-						\item amount format  
+						\item amount upper/lower bounds: concordant balance 	*	 {\color{green} DONE}
+						\item amount format  	*	 {\color{green} DONE}
 						\end{enumerate}
 					\item \textbf{Buffer test}\\
 					\begin{enumerate}
-						\item Nodes all send different amounts 
-						\item 2/3 Nodes send same amount
-						\item Flooding/DDos
+						\item Nodes all send different amounts 	*	 {\color{green} DONE}
+						\item 2/3 Nodes send same amount 	* {\color{green} DONE}
+						\item Flooding/DDos 	*  {	\color{green} DONE}
 					\end{enumerate}
-						\item \textbf{Registration test}DONE\\
-						\item \textbf{Unregistration test}DONE\\
+						\item \textbf{Registration test}DONE\\ 	*	 {\color{green} DONE}
+						\item \textbf{Unregistration test}DONE\\	*	 {\color{green} DONE}
 						\item \textbf{EOS bandwidth test}\\
-						\item \textbf{Persistency test}IN PROGRESS\\
+						\item \textbf{Persistency test} 	*	 {\color{green} DONE}
 							\begin{enumerate}
-								\item uptime\textit{}
-								\item Message to network less than 8 nodes with pesistency
+								\item uptime\textit{} 2 d. 	*	 {\color{green} DONE}
+								\item Message to network less than 8 nodes with pesistency 
 								\item Iterate through 16 nodes and shut 8 down
-								\item Manage if provider is not available.
-								\item Test values from providers
+								\item Manage if provider is not available. 	* {\color{green} DONE}
+								\item Test values from providers 	*	 {\color{green} DONE}
 							\end{enumerate}
-						\item \textbf{Out of ressouces test}\\
+						\item \textbf{Out of ressouces test}\\ 	*	 {\color{green} DONE}
 						\begin{enumerate}
-							\item CPU DONE
-							\item Memory
+							\item CPU DONE 	*	 {\color{green} DONE}
+							\item Memory 
 							\item BW
 						\end{enumerate}  
 				\end{enumerate}
